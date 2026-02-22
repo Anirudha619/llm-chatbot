@@ -20,9 +20,9 @@ export default function LandingPage() {
                         <span>LLM Chatbot</span>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <Link href="/chatbot-builder">
+                        {/* <Link href="/chatbot-builder">
                             <Button variant="ghost" className="text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-medium">Sign In</Button>
-                        </Link>
+                        </Link> */}
                         <Link href="/chatbot-builder">
                             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm font-medium">
                                 Launch App
