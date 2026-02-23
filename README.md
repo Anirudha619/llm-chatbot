@@ -170,6 +170,3 @@ chatbot/
 - **E-commerce** - Help customers find product information from catalogs
 - **Documentation Sites** - Add AI-powered search to technical documentation
 
-## License
-
-ISC
