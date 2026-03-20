@@ -9,7 +9,7 @@ const client = new Cerebras({
 async function callLlm(prompt) {
     console.log("prompt ", prompt)
   const chatCompletion = await client.chat.completions.create({
-    model: 'gpt-oss-120b',
+    model: 'llama3.1-8b',
     messages: [{ role: 'user', content: prompt }],
   });
 
