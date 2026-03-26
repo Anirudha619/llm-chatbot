@@ -12,9 +12,9 @@ export default function Home() {
   };
 
   return (
-    <main className="flex h-screen w-full bg-slate-100 overflow-hidden">
+    <main className="flex h-screen w-full bg-muted overflow-hidden">
       {/* Left Panel: Configuration and Uploads */}
-      <div className="w-full lg:w-[450px] shrink-0 h-full border-r bg-white shadow-xl z-20 relative">
+      <div className="w-full lg:w-[450px] shrink-0 h-full border-r bg-card shadow-xl z-20 relative">
         <LeftPanel onChatbotCreate={handleChatbotCreate} />
       </div>
 
@@ -26,11 +26,11 @@ export default function Home() {
 
         <div className="relative z-10 flex flex-col h-full w-full max-w-5xl mx-auto p-4 lg:p-8">
           <div className="mb-4 hidden lg:block">
-            <h2 className="text-xl font-medium text-slate-800 tracking-tight">Chatbot Live Preview</h2>
-            <p className="text-sm text-slate-500">Test how your visitors will interact with the chatbot on your website.</p>
+            <h2 className="text-xl font-medium text-card-foreground tracking-tight">Chatbot Live Preview</h2>
+            <p className="text-sm text-muted-foreground">Test how your visitors will interact with the chatbot on your website.</p>
           </div>
 
-          <div className="flex-1 min-h-0 bg-white/60 backdrop-blur-md border shadow-2xl rounded-2xl overflow-hidden ring-1 ring-slate-900/5">
+          <div className="flex-1 min-h-0 bg-card/60 backdrop-blur-md border shadow-2xl rounded-2xl overflow-hidden ring-1 ring-primary/10">
             <RightPanel
               botName={activeBot?.name || null}
               systemPrompt={activeBot?.prompt || null}

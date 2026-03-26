@@ -13,12 +13,12 @@ interface RightPanelProps {
 export function RightPanel({ botName, systemPrompt, chatBotId }: RightPanelProps) {
     if (!botName) {
         return (
-            <div className="h-full flex flex-col items-center justify-center p-8 text-center bg-white">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
-                    <AlertCircle className="w-8 h-8 text-slate-400" />
+            <div className="h-full flex flex-col items-center justify-center p-8 text-center bg-card">
+                <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-4">
+                    <AlertCircle className="w-8 h-8 text-muted-foreground" />
                 </div>
-                <h2 className="text-2xl font-semibold text-slate-800 mb-2">No Chatbot Configured</h2>
-                <p className="text-slate-500 max-w-md">
+                <h2 className="text-2xl font-semibold text-foreground mb-2">No Chatbot Configured</h2>
+                <p className="text-muted-foreground max-w-md">
                     Configure your chatbot on the left panel, upload documents, and click "Create Chatbot" to preview it here.
                 </p>
             </div>

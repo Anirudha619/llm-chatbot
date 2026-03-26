@@ -64,9 +64,9 @@ export function LeftPanel({ onChatbotCreate }: { onChatbotCreate: (name: string,
     };
 
     return (
-        <div className="h-full flex flex-col space-y-6 p-6 overflow-y-auto bg-slate-50 border-r">
+        <div className="h-full flex flex-col space-y-6 p-6 overflow-y-auto bg-muted border-r">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight text-slate-900">Website Chatbot Builder</h1>
+                <h1 className="text-3xl font-bold tracking-tight text-foreground">Website Chatbot Builder</h1>
                 <p className="text-muted-foreground mt-2 text-sm">Train a custom AI chatbot on your documents to support your website visitors.</p>
             </div>
 
@@ -111,7 +111,7 @@ export function LeftPanel({ onChatbotCreate }: { onChatbotCreate: (name: string,
                             <CardDescription>Upload training documents for your bot.</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <div className="border-2 border-dashed rounded-lg p-6 flex flex-col items-center justify-center text-center space-y-4 bg-white">
+                            <div className="border-2 border-dashed rounded-lg p-6 flex flex-col items-center justify-center text-center space-y-4 bg-card">
                                 <div className="p-3 bg-primary/10 rounded-full">
                                     <UploadCloud className="w-6 h-6 text-primary" />
                                 </div>
@@ -139,7 +139,7 @@ export function LeftPanel({ onChatbotCreate }: { onChatbotCreate: (name: string,
                                     <h4 className="text-sm font-medium">Uploaded Files</h4>
                                     <ul className="space-y-2">
                                         {files.map((file, idx) => (
-                                            <li key={idx} className="flex items-center justify-between text-sm p-2 bg-slate-100 rounded-md">
+                                            <li key={idx} className="flex items-center justify-between text-sm p-2 bg-secondary rounded-md">
                                                 <span className="truncate max-w-[200px]">{file.name}</span>
                                                 <span className="text-xs text-muted-foreground">{(file.size / 1024).toFixed(1)} KB</span>
                                             </li>
@@ -177,10 +177,10 @@ export function LeftPanel({ onChatbotCreate }: { onChatbotCreate: (name: string,
 
                 <TabsContent value="saved" className="flex-1 flex flex-col space-y-4">
                     {savedBots.length === 0 ? (
-                        <div className="flex flex-col items-center justify-center h-48 text-center bg-white rounded-lg border border-dashed">
-                            <MessageSquare className="w-8 h-8 text-slate-300 mb-2" />
-                            <p className="text-slate-500 font-medium">No Chatbots yet</p>
-                            <p className="text-sm text-slate-400">Create one to see it here.</p>
+                        <div className="flex flex-col items-center justify-center h-48 text-center bg-card rounded-lg border border-dashed">
+                            <MessageSquare className="w-8 h-8 text-muted-foreground mb-2" />
+                            <p className="text-muted-foreground font-medium">No Chatbots yet</p>
+                            <p className="text-sm text-muted-foreground">Create one to see it here.</p>
                         </div>
                     ) : (
                         <div className="flex flex-col space-y-3">
@@ -213,7 +213,7 @@ export function LeftPanel({ onChatbotCreate }: { onChatbotCreate: (name: string,
                                         </Button>
                                         <Button
                                             size="sm"
-                                            className="h-8 text-xs bg-slate-800 hover:bg-slate-700"
+                                            className="h-8 text-xs"
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 window.open(`/chatbot/${bot.id}`, '_blank');

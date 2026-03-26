@@ -31,5 +31,5 @@ app.post("/chatbot/query", async (req, res) => {
   }
 });
 
-module.exports = app;
-// app.listen(4000, () => console.log("🚀 API on http://localhost:4000"));
+// module.exports = app;
+app.listen(4000, () => console.log("🚀 API on http://localhost:4000"));
