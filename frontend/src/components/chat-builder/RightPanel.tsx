@@ -28,24 +28,14 @@ export function RightPanel({ botName, systemPrompt, chatBotId }: RightPanelProps
     const handleSend = async (message: string): Promise<string> => {
         if (!chatBotId) throw new Error("No chatbot ID");
 
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/chatbot/query`, {
+        const res = await fetch(`/chat`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ chatBotId, question: message })
+            body: JSON.stringify({ message, company_id: chatBotId })
         });
         const data = await res.json();
 
-        if (!data.status) {
-            throw new Error(data.error || "Unknown error");
-        }
-
-        if (Array.isArray(data.result)) {
-            return data.result.map((r: any) => r?.payload?.text || JSON.stringify(r.payload || r)).join("\n\n");
-        } else if (typeof data.result === "string") {
-            return data.result;
-        } else {
-            return JSON.stringify(data.result);
-        }
+        return data.answer || "No response";
     };
 
     return (

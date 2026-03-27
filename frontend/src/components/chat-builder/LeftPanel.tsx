@@ -29,27 +29,22 @@ export function LeftPanel({ onChatbotCreate }: { onChatbotCreate: (name: string,
     };
 
     const handleCreate = async () => {
-        if (!botName.trim()) return;
+        if (!botName.trim() || files.length === 0) return;
         setIsUploading(true);
 
-        let combinedText = "";
-        for (const file of files) {
-            if (file.name.endsWith('.txt')) {
-                const text = await file.text();
-                combinedText += text + "\n";
-            }
-        }
-
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/chatbot/create`, {
+            const formData = new FormData();
+            files.forEach((file) => formData.append("file", file));
+            
+            const res = await fetch(`/upload/${botName.trim()}`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ botName, systemPrompt, text: combinedText })
+                body: formData
             });
+            if (!res.ok) throw new Error("Upload failed");
             const data = await res.json();
-            if (data.status) {
+            if (data.status === "indexed") {
                 const newBot = saveChatbot({
-                    id: data.chatBotId,
+                    id: botName.trim(),
                     name: botName,
                     systemPrompt
                 });
