@@ -7,6 +7,8 @@ class Settings(BaseSettings):
     
     google_api_key: str
     cerebras_api_key: str
+    groq_api_key: str
+    llm_provider: str = "groq"
 
     class Config:
         env_file = ".env"

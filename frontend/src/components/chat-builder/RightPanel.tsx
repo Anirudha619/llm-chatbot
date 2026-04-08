@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChatPanel } from "./ChatPanel";
+import { ChatPanel } from "../standalone/ChatPanelStandalone";
 import { AlertCircle } from "lucide-react";
 
 interface RightPanelProps {
