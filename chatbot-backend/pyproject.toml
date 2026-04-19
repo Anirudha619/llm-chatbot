@@ -16,4 +16,5 @@ dependencies = [
     "langchain>=0.4.0",
     "langchain-cerebras>=0.1.0",
     "langchain-groq>=0.2.0",
+    "supabase>=2.0.0",
 ]
