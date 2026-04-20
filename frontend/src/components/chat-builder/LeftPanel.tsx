@@ -59,7 +59,7 @@ export function LeftPanel({ onChatbotCreate }: { onChatbotCreate: (name: string,
     };
 
     return (
-        <div className="h-full flex flex-col space-y-6 p-6 overflow-y-auto bg-muted border-r">
+        <div className="h-full flex flex-col space-y-6 p-6 bg-muted border-r">
             <div>
                 <h1 className="text-3xl font-bold tracking-tight text-foreground">Website Chatbot Builder</h1>
                 <p className="text-muted-foreground mt-2 text-sm">Train a custom AI chatbot on your documents to support your website visitors.</p>

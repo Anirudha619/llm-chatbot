@@ -49,39 +49,40 @@ function parseMarkdown(text: string): React.ReactNode {
 
 const defaultStyles = `
   .chat-panel * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-  .chat-panel { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
-  .chat-panel-header { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #e5e5e5; padding: 16px 20px; }
+  .chat-panel { display: flex; flex-direction: column; height: 100%; overflow: hidden; border-radius: 24px; border: 1px solid rgba(0,0,0,0.08); }
+  .chat-panel-header { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 16px 20px; background: #fff; }
   .chat-panel-avatar { width: 40px; height: 40px; background: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; }
   .chat-panel-info h3 { font-weight: 600; font-size: 14px; color: #333; }
-  .chat-panel-info p { font-size: 11px; color: #22c55e; display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+  .chat-panel-info p { font-size: 12px; color: #22c55e; display: flex; align-items: center; gap: 6px; margin-top: 2px; }
   .chat-panel-info p span { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-  .chat-panel-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; background: #fafafa; }
+  .chat-panel-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; background: #fff; }
   .chat-panel-msg { max-width: 85%; padding: 12px 20px; border-radius: 20px; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
   .chat-panel-msg.user { align-self: flex-end; background: #000; color: #fff; border-bottom-right-radius: 4px; border-bottom-left-radius: 20px; }
-  .chat-panel-msg.bot { align-self: flex-end; background: #000; color: #fff; border-bottom-right-radius: 4px; border-bottom-left-radius: 20px; }
+  .chat-panel-msg.bot { align-self: flex-start; background: #f4f4f5; color: #000; border-bottom-right-radius: 20px; border-bottom-left-radius: 4px; }
   .chat-panel-msg pre { background: #1f2937; color: #e5e7eb; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; margin-top: 8px; }
   .chat-panel-msg code { background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
   .chat-panel-msg pre code { background: transparent; padding: 0; }
-  .chat-panel-typing { display: flex; gap: 6px; padding: 12px 16px; background: #e5e5e5; align-self: flex-end; border-radius: 20px; border-bottom-right-radius: 4px; }
+  .chat-panel-typing { display: flex; gap: 6px; padding: 12px 16px; background: #f4f4f5; align-self: flex-start; border-radius: 20px; border-bottom-left-radius: 4px; }
   .chat-panel-typing span { width: 8px; height: 8px; background: #71717a; border-radius: 50%; animation: bounce 1.4s infinite; }
   .chat-panel-typing span:nth-child(2) { animation-delay: 150ms; }
   .chat-panel-typing span:nth-child(3) { animation-delay: 300ms; }
   @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
-  .chat-panel-input-area { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-top: 1px solid #e5e5e5; background: #fff; }
-  .chat-panel-input-wrapper { flex: 1; display: flex; align-items: center; background: #f4f4f5; border-radius: 9999px; padding: 0 16px; height: 40px; }
+  .chat-panel-input-area { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-top: 1px solid rgba(0,0,0,0.08); background: #fff; }
+  .chat-panel-input-wrapper { flex: 1; display: flex; align-items: center; background: #f4f4f5; border-radius: 9999px; padding: 0 16px; height: 44px; }
   .chat-panel-input { flex: 1; border: none; background: transparent; outline: none; font-size: 14px; color: #71717a; }
   .chat-panel-input::placeholder { color: #a1a1aa; }
   .chat-panel-send { width: 36px; height: 36px; border-radius: 50%; background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #71717a; transition: color 0.2s; }
   .chat-panel-send:hover { color: #000; }
   .chat-panel-send:disabled { opacity: 0.5; cursor: not-allowed; }
-  .chat-panel.dark .chat-panel-header { border-color: #3f3f46; }
+  .chat-panel.dark { border-color: rgba(255,255,255,0.08); }
+  .chat-panel.dark .chat-panel-header { border-color: rgba(255,255,255,0.08); background: #09090b; }
   .chat-panel.dark .chat-panel-info h3 { color: #fafafa; }
-  .chat-panel.dark .chat-panel-messages { background: #18181b; }
-  .chat-panel.dark .chat-panel-msg.bot { background: #3f3f46; color: #fafafa; }
-  .chat-panel.dark .chat-panel-typing { background: #3f3f46; }
+  .chat-panel.dark .chat-panel-messages { background: #09090b; }
+  .chat-panel.dark .chat-panel-msg.bot { background: #27272a; color: #fafafa; }
+  .chat-panel.dark .chat-panel-typing { background: #27272a; }
   .chat-panel.dark .chat-panel-typing span { background: #71717a; }
-  .chat-panel.dark .chat-panel-input-area { border-color: #3f3f46; background: #09090b; }
+  .chat-panel.dark .chat-panel-input-area { border-color: rgba(255,255,255,0.08); background: #09090b; }
   .chat-panel.dark .chat-panel-input-wrapper { background: #27272a; }
   .chat-panel.dark .chat-panel-input { color: #a1a1aa; }
   .chat-panel.dark .chat-panel-input::placeholder { color: #71717a; }
@@ -165,25 +166,13 @@ export function ChatPanel({
           {messages.map((m, i) => (
             <div 
               key={i} 
-              style={{
-                maxWidth: '85%',
-                alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start',
-                padding: '12px 20px',
-                borderRadius: '20px',
-                fontSize: '14px',
-                lineHeight: '1.5',
-                wordWrap: 'break-word',
-                background: m.role === 'user' ? '#000' : '#e5e5e5',
-                color: m.role === 'user' ? '#fff' : '#000',
-                borderBottomLeftRadius: m.role === 'user' ? '20px' : '4px',
-                borderBottomRightRadius: m.role === 'user' ? '4px' : '20px',
-              }}
+              className={`chat-panel-msg ${m.role === 'user' ? 'user' : 'bot'}`}
             >
               {m.content === "..." ? (
-                <div style={{ display: 'flex', gap: '6px' }}>
-                  <span style={{ width: '8px', height: '8px', background: m.role === 'user' ? '#fff' : '#71717a', borderRadius: '50%', animation: 'bounce 1.4s infinite', opacity: 0.5 }} />
-                  <span style={{ width: '8px', height: '8px', background: m.role === 'user' ? '#fff' : '#71717a', borderRadius: '50%', animation: 'bounce 1.4s infinite 150ms', opacity: 0.5 }} />
-                  <span style={{ width: '8px', height: '8px', background: m.role === 'user' ? '#fff' : '#71717a', borderRadius: '50%', animation: 'bounce 1.4s infinite 300ms', opacity: 0.5 }} />
+                <div className="chat-panel-typing">
+                  <span />
+                  <span />
+                  <span />
                 </div>
               ) : (
                 <div style={{ fontFamily: 'inherit' }}>
