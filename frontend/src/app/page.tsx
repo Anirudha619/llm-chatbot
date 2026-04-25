@@ -43,9 +43,9 @@ export default function Home() {
       } as React.CSSProperties}
     >
       <AppSidebar />
-      <SidebarInset>
+      <SidebarInset className="h-screen overflow-hidden">
         <SiteHeader />
-        <main className="flex flex-1 overflow-hidden p-4">
+        <main className="flex flex-1 h-[calc(100vh-64px)] overflow-hidden p-4">
           <div className="w-full lg:w-[450px] shrink-0 h-full border-r bg-card shadow-xl z-20 relative overflow-y-auto">
             <LeftPanel onChatbotCreate={handleChatbotCreate} />
           </div>
