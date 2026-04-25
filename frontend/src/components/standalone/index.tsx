@@ -18,8 +18,9 @@ declare global {
 const style = document.createElement("style");
 style.textContent = `
   .chat-widget-container { position: fixed; bottom: 20px; right: 20px; z-index: 999999; }
-  .chat-widget-btn { width: 64px; height: 64px; border-radius: 50%; background: #000; color: #fff; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; font-size: 28px; transition: transform 0.2s; }
+  .chat-widget-btn { width: 64px; height: 64px; border-radius: 50%; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; transition: transform 0.2s; padding: 0; }
   .chat-widget-btn:hover { transform: scale(1.05); }
+  .chat-widget-btn svg { width: 100%; height: 100%; }
   .chat-widget-window { display: none; position: absolute; bottom: 80px; right: 0; width: 380px; height: min(700px, 80vh); background: #fff; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); overflow: hidden; }
   .chat-widget-window.open { display: flex; flex-direction: column; }
   .chat-widget-close { position: absolute; top: 12px; right: 12px; background: none; border: none; color: #666; cursor: pointer; font-size: 24px; line-height: 1; }
@@ -30,7 +31,12 @@ document.head.appendChild(style);
 const container = document.createElement("div");
 container.className = "chat-widget-container";
 container.innerHTML = `
-  <button class="chat-widget-btn">💬</button>
+  <button class="chat-widget-btn">
+    <svg viewBox="0 0 680 680">
+      <circle cx="340" cy="340" r="300" fill="#1a1a1a"/>
+      <path fill="#f5f5f5" d="M 210 226 Q 210 191 245 191 L 435 191 Q 470 191 470 226 L 470 381 Q 470 416 435 416 L 375 416 Q 365 416 358 426 L 340 454 L 322 426 Q 315 416 305 416 L 245 416 Q 210 416 210 381 Z"/>
+    </svg>
+  </button>
   <div class="chat-widget-window"></div>
 `;
 document.body.appendChild(container);
