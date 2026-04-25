@@ -60,7 +60,7 @@ export default function Home() {
                 <p className="text-sm text-muted-foreground">Test how your visitors will interact with the chatbot on your website.</p>
               </div>
 
-              <div className="bg-card/60 backdrop-blur-md border shadow-2xl rounded-2xl overflow-hidden ring-1 ring-primary/10 w-full max-w-[420px] h-[600px]">
+              <div className="bg-card/60 backdrop-blur-md border shadow-2xl rounded-2xl overflow-hidden ring-1 ring-primary/10 w-full max-w-[420px] h-[min(700px,80vh)]">
                 <RightPanel
                   botName={activeBot?.name || null}
                   systemPrompt={activeBot?.prompt || null}
