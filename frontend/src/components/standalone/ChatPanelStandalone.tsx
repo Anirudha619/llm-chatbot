@@ -155,13 +155,10 @@ export function ChatPanel({
         {showHeader && (
           <div className="chat-panel-header">
             <div className="chat-panel-avatar">
-  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="8" width="18" height="12" rx="2"/>
-    <circle cx="9" cy="13" r="1" fill="#fff"/>
-    <circle cx="15" cy="13" r="1" fill="#fff"/>
-    <path d="M9 13h6"/>
-    <path d="M12 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/>
-    <circle cx="6" cy="5" r="2"/>
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="4" y="7" width="16" height="12" rx="3"/>
+    <circle cx="9" cy="13" r="2" fill="#fff" stroke="none"/>
+    <circle cx="15" cy="13" r="2" fill="#fff" stroke="none"/>
   </svg>
 </div>
             <div className="chat-panel-info">
