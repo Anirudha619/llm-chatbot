@@ -21,7 +21,9 @@ Here is users question: {question}.
     if context and context.strip()
     else ""
 }
-Answer the user's question based on context given if context is empty still answer question based on your knowledge."""
+Answer the user's question based on context given if context is empty still answer question based on your knowledge.
+Dont write table / code / graph or anything in answer. just write answer in text format.
+"""
 
 
 async def call_llm(prompt: str) -> str:

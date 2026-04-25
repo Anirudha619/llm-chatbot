@@ -1,7 +1,7 @@
 from llama_index.core import VectorStoreIndex
 from llama_index.core.vector_stores import MetadataFilters, MetadataFilter
 from llama_index.embeddings.gemini import GeminiEmbedding
-from .qdrant import get_storage
+from .qdrant import client, get_storage
 from .config import settings
 from .llm import create_prompt, call_llm
 
@@ -26,14 +26,20 @@ async def ask(question: str, company_id: str):
 
     retriever = index.as_retriever(
         filters=filters,
-        similarity_top_k=2,
+        similarity_top_k=6,
+        vector_store_query_mode="hybrid",
+        sparse_top_k=12,
     )
 
     nodes = retriever.retrieve(question)
     context = "\n".join(node.text for node in nodes)
+    # print('chunk: ')
+    # (print(context))
+    # print('---------------------------- ')
 
     prompt = create_prompt(context, question)
     answer = await call_llm(prompt)
+    # print("ans: ", answer)
 
     return answer
 
@@ -55,6 +61,6 @@ def debug_chunks(company_id: str):
     print(f"Total chunks in DB for company_id={company_id}: {len(results)}")
     for i, point in enumerate(results, 1):
         payload = point.payload or {}
-        print(f"  Chunk {i} | id={point.id} | text={str(payload.get('_node_content', ''))[:100]}...")
+        # print(f"  Chunk {i} | id={point.id} | text={str(payload.get('_node_content', ''))[:100]}...")
 
     return results

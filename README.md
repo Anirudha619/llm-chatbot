@@ -173,3 +173,65 @@ chatbot/
 
 
 npm run build:widget
+
+
+
+write a code in ts for next ts appaction. (you dont have write all the neext ts appliaction just write the api route and api logic file).
+
+so we will have 2 api endpoint
+
+1. create chatbot (take pdr or txt file) and then uses llamaindex hybrid search (qdrant for vector serach and elastic search for keyword search) for indexing.
+
+2. chat/ (more details later first lets just build create chatbot)
+
+
+do this task as an ai engineer rag enginner and backend engineer
+
+read this doc before writing code  https://developers.llamaindex.ai/python/framework/integrations/vector_stores/qdrant_hybrid/
+
+write needed code only. write valid samll short pord readyu readble simple code. dont assume anything.
+you dont have to create new next project just the api and logic file
+current steucture:
+
+project/src/
+├── app/
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── auth/
+│   │   ├── callback/page.tsx
+│   │   └── login/page.tsx
+│   ├── chatbot/[id]/page.tsx
+│   └── dashboard/
+│       ├── data.json
+│       └── page.tsx
+├── components/
+│   ├── app-sidebar.tsx
+│   ├── chart-area-interactive.tsx
+│   ├── data-table.tsx
+│   ├── login-form.tsx
+│   ├── Navbar.tsx
+│   ├── search-form.tsx
+│   ├── section-cards.tsx
+│   ├── site-header.tsx
+│   ├── version-switcher.tsx
+│   ├── chat-builder/
+│   │   ├── LeftPanel.tsx
+│   │   └── RightPanel.tsx
+│   ├── standalone/
+│   │   ├── ChatPanelStandalone.tsx
+│   │   └── index.tsx
+│   └── ui/
+│       ├── avatar.tsx, button.tsx, card.tsx, dropdown-menu.tsx
+│       ├── input.tsx, label.tsx, select.tsx, separator.tsx
+│       ├── sheet.tsx, sidebar.tsx, skeleton.tsx, tabs.tsx
+│       ├── textarea.tsx, tooltip.tsx
+├── hooks/
+│   └── use-mobile.ts
+└── lib/
+    ├── auth.ts
+    ├── AuthContext.tsx
+    ├── storage.ts
+    ├── supabase.ts
+    └── utils.ts
