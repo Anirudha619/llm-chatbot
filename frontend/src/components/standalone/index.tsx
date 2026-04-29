@@ -34,7 +34,7 @@ container.innerHTML = `
   <button class="chat-widget-btn">
     <svg viewBox="0 0 680 680">
       <circle cx="340" cy="340" r="300" fill="#1a1a1a"/>
-      <path fill="#f5f5f5" d="M 210 226 Q 210 191 245 191 L 435 191 Q 470 191 470 226 L 470 381 Q 470 416 435 416 L 375 416 Q 365 416 358 426 L 340 454 L 322 426 Q 315 416 305 416 L 245 416 Q 210 416 210 381 Z"/>
+      <path fill="#f5f5f5" d="M 210 255 Q 210 220 245 220 L 435 220 Q 470 220 470 255 L 470 400 Q 470 435 435 435 L 375 435 Q 365 435 358 445 L 340 470 L 322 445 Q 315 435 305 435 L 245 435 Q 210 435 210 400 Z"/>
     </svg>
   </button>
   <div class="chat-widget-window"></div>
