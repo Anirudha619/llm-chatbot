@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { ChatBotAvatar } from "./ChatBotAvatar";
 
 export interface Message {
   role: "user" | "assistant";
@@ -154,13 +155,8 @@ export function ChatPanel({
       <div className={`chat-panel ${className}`}>
         {showHeader && (
           <div className="chat-panel-header">
-            <div className="chat-panel-avatar">
-  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="4" y="7" width="16" height="12" rx="3"/>
-    <circle cx="9" cy="13" r="2" fill="#fff" stroke="none"/>
-    <circle cx="15" cy="13" r="2" fill="#fff" stroke="none"/>
-  </svg>
-</div>
+            
+            <ChatBotAvatar size={40} />
             <div className="chat-panel-info">
               <h3>{botName}</h3>
               <p><span />Online</p>
