@@ -70,8 +70,9 @@ const defaultStyles = `
   .chat-panel-typing span:nth-child(3) { animation-delay: 300ms; }
   @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
   .chat-panel-input-area { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-top: 1px solid rgba(0,0,0,0.08); background: #fff; }
-  .chat-panel-input-wrapper { flex: 1; display: flex; align-items: center; background: #f4f4f5; border-radius: 9999px; padding: 0 16px; height: 44px; }
-  .chat-panel-input { flex: 1; border: none; background: transparent; outline: none; font-size: 14px; color: #71717a; }
+  .chat-panel-input-wrapper { flex: 1; display: flex; align-items: center; background: #f4f4f5; border-radius: 9999px; padding: 0 16px; height: 44px; border: 1px solid rgba(0,0,0,0.06); transition: border-color 0.2s, box-shadow 0.2s; }
+  .chat-panel-input-wrapper:focus-within { border-color: rgba(0,0,0,0.15); box-shadow: 0 0 0 2px rgba(0,0,0,0.05); }
+  .chat-panel-input { flex: 1; border: none; background: transparent; outline: none; font-size: 14px; color: #18181b; font-weight: 500; }
   .chat-panel-input::placeholder { color: #a1a1aa; }
   .chat-panel-send { width: 36px; height: 36px; border-radius: 50%; background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #71717a; transition: color 0.2s; }
   .chat-panel-send:hover { color: #000; }
@@ -84,8 +85,9 @@ const defaultStyles = `
   .chat-panel.dark .chat-panel-typing { background: #27272a; }
   .chat-panel.dark .chat-panel-typing span { background: #71717a; }
   .chat-panel.dark .chat-panel-input-area { border-color: rgba(255,255,255,0.08); background: #09090b; }
-  .chat-panel.dark .chat-panel-input-wrapper { background: #27272a; }
-  .chat-panel.dark .chat-panel-input { color: #a1a1aa; }
+  .chat-panel.dark .chat-panel-input-wrapper { background: #18181b; border-color: rgba(255,255,255,0.1); }
+  .chat-panel.dark .chat-panel-input-wrapper:focus-within { border-color: rgba(255,255,255,0.2); box-shadow: 0 0 0 2px rgba(255,255,255,0.05); }
+  .chat-panel.dark .chat-panel-input { color: #fafafa; }
   .chat-panel.dark .chat-panel-input::placeholder { color: #71717a; }
   .chat-panel.dark .chat-panel-send { color: #a1a1aa; }
   .chat-panel.dark .chat-panel-send:hover { color: #fff; }
