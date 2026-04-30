@@ -24,6 +24,17 @@ esbuild.build({
   external: [],
   jsx: 'automatic',
 }).then(() => {
+  const content = fs.readFileSync(outfile, 'utf-8');
+  const cleaned = content.replace(/\/\*! Bundled license[\s\S]*?\*\/\n?/, '');
+  fs.writeFileSync(outfile, cleaned);
+
+  const mapPath = outfile + '.map';
+  if (fs.existsSync(mapPath)) {
+    const map = JSON.parse(fs.readFileSync(mapPath, 'utf-8'));
+    map.sourcesContent = null;
+    fs.writeFileSync(mapPath, JSON.stringify(map));
+  }
+
   console.log('✅ Built: public/chat-widget.js');
   console.log('');
   console.log('Usage:');
